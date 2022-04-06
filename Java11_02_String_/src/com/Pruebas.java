@@ -4,15 +4,16 @@ public class Pruebas {
 
 	public static void main(String[] args) {
 		
+		
+		System.out.println("============================");
+		String txt4 = "111\n222\n333\n444\n555\n666";
+		txt4.lines().forEach(txt -> System.out.println(txt));
+		
 		System.out.println("============================");
 		String txt1 = "";
 		String txt2 = "   ";
 		validar(txt1);
 		validar(txt2);
-		
-		System.out.println("============================");
-		String txt4 = "111\n222\n333\n444\n555\n666";
-		txt4.lines().forEach(txt -> System.out.println(txt));
 		
 		System.out.println("============================");
         String s1 = "\t abc \n";

@@ -6,6 +6,7 @@ import java.util.concurrent.Flow;
 import java.util.concurrent.Flow.Processor;
 import java.util.concurrent.Flow.Subscription;
 import java.util.concurrent.SubmissionPublisher;
+import java.util.function.Function;
 
 import com.curso.modelo.entidad.Cliente;
 
@@ -13,7 +14,7 @@ import com.curso.modelo.entidad.Cliente;
 // Recibe elementos de un stream por parte del anterior eslabón de la cadena
 // Envía un elemento al siguiente eslabón
 //
-public class ClientesProcessor extends SubmissionPublisher<Cliente> implements Processor<Cliente, Cliente> {
+class ClientesProcessor extends SubmissionPublisher<Cliente> implements Processor<Cliente, Cliente> {
 
 	private FunctionThrows<Cliente, Cliente> funcion;
 	private Subscription subscription;
@@ -52,21 +53,4 @@ public class ClientesProcessor extends SubmissionPublisher<Cliente> implements P
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

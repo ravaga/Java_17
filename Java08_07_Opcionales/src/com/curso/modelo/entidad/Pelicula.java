@@ -8,6 +8,7 @@ public class Pelicula {
 	private String titulo;
 	
 	//No es buena idea colocar atributos del tipo Optional
+	//Debemos utilizarlos sólo en métodos como return
 	private Optional<Director> director;
 	
 	public Pelicula() {

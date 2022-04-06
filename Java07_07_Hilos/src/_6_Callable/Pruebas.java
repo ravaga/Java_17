@@ -11,7 +11,6 @@ public class Pruebas {
 
 		System.out.println("===================================");
 		
-		
 		int[] datos = new int[10_000];
 		for(int a=0; a<10_000; a++){
 			datos[a] = (int) Math.round(Math.random()*10_000_000);
@@ -19,7 +18,7 @@ public class Pruebas {
 
 		Tarea t = new Tarea(datos);
 
-		//Integer resultado = t.call(); esto es como llamar directamente al run
+		//Integer resultado = t.call(); esto es como llamar directamente al run de un runnable
 
 		//Un runnable se lanza como hilo usando un objeto de la clase Thread
 		//Un callable necesita un ExecutorService

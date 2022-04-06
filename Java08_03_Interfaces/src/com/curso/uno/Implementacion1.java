@@ -6,5 +6,7 @@ public class Implementacion1 implements Interfaz {
 	public void metodo() {
 		System.out.println("Implementacion1:metodo");
 	}
+	
+	//Utilizamos la implementación por defecto del método 'saludar()'
 
 }

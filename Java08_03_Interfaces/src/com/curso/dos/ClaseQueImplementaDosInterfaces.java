@@ -10,7 +10,7 @@ public class ClaseQueImplementaDosInterfaces implements InterfazA, InterfazB {
 		System.out.println("Implementacion de método en la clase");
 	}
 	
-	//No hay problema con los metodos estáticos porque en java8 si queremos acceder a un método estático
+	//No hay problema con los metodos estáticos porque en java 8 si queremos acceder a un método estático
 	//debemos usar el nombre de la interfaz
 	
 }

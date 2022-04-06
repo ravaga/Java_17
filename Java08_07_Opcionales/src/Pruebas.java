@@ -10,25 +10,25 @@ public class Pruebas {
 
 	public static void main(String[] args) {
 		
-		PeliculaRepositorio gp = new PeliculaRepositorio();
+		PeliculaRepositorio peliculaRepo = new PeliculaRepositorio();
 		
-		Pelicula p1 = gp.buscar(3);
+		Pelicula p1 = peliculaRepo.buscar(3);
 		System.out.println(p1.getTitulo());
 		
-		Pelicula p2 = gp.buscar(20_000);
+		Pelicula p2 = peliculaRepo.buscar(20_000);
 		//System.out.println(p2.getTitulo());
 		if( p2 != null ) {
 			System.out.println(p2.getTitulo());		
 		}
 				
 		//Con optional mínimo avisamos al que invoca al método de que puede recibir un null
-		Optional<Pelicula> p3 = gp.buscarOptional(3);
+		Optional<Pelicula> p3 = peliculaRepo.buscarOptional(3);
 		//Podemos preguntar directamente si hay algo dentro del optional, pero es muy cutre
 		if(p3.isPresent()){
 			System.out.println(p3.get().getTitulo());
 		}
 		
-		Optional<Pelicula> p4 = gp.buscarOptional(20_000);
+		Optional<Pelicula> p4 = peliculaRepo.buscarOptional(20_000);
 		if(p4.isPresent()){
 			System.out.println(p4.get().getTitulo());
 		} 
@@ -40,7 +40,7 @@ public class Pruebas {
 		//
 		//isPresent
 		//
-		Optional<Pelicula> pOp = gp.buscarOptional(1);
+		Optional<Pelicula> pOp = peliculaRepo.buscarOptional(1);
 		if( pOp.isPresent() ){
 			Optional<Director> dOp = pOp.get().getDirector();
 			if( dOp.isPresent() ){
@@ -61,8 +61,7 @@ public class Pruebas {
 		//flatMap y map
 		//
 		System.out.println("========================");
-		Optional<String> ciudadOp = 
-			gp
+		Optional<String> ciudadOp = peliculaRepo
 			.buscarOptional(1)
 			.flatMap( pelicula -> pelicula.getDirector() )
 			.flatMap( director -> director.getDireccion() )
@@ -75,13 +74,13 @@ public class Pruebas {
 		//
 		//Or: Proporciona un optional alternativo
 		//
-		Optional<Pelicula> op = gp.buscarOptional(1).or( () -> Optional.empty() );
+		Optional<Pelicula> op = peliculaRepo.buscarOptional(1).or( () -> Optional.empty() );
 		
 		//
 		//OrElse: Entrega un valor por defecto si el opcional esta vacio
 		//
 		System.out.println("========================");
-		Optional<Pelicula> peliculaOp = gp.buscarOptional(1);		
+		Optional<Pelicula> peliculaOp = peliculaRepo.buscarOptional(1);		
 		
 		String ciudad = 
 			peliculaOp

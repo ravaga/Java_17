@@ -21,7 +21,7 @@ public class Tarea implements Callable<Integer>{
 		}
 
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(5_000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

@@ -16,8 +16,6 @@ import java.util.function.Supplier;
 import javax.swing.JButton;
 
 public class PruebasLambdas {
-
-	
 	
 	private static void insertar() {
 		//Método de palo
@@ -38,7 +36,7 @@ public class PruebasLambdas {
 			}
 		};
 		boton.addActionListener(al);
-		
+
 		//Igual, pero sin usar una variable intermedia
 		JButton boton2 = new JButton("Dale más");
 		boton2.addActionListener(new ActionListener() {
@@ -50,7 +48,7 @@ public class PruebasLambdas {
 		//
 		//Expresiones lambda
 		//
-		
+
 		JButton boton3 = new JButton();
 		ActionListener oyenteBotonInsertar = e -> insertar();
 		boton3.addActionListener(oyenteBotonInsertar);
@@ -61,7 +59,11 @@ public class PruebasLambdas {
 		
 		//
 		//EXPRESIONES LAMBDA
-		//		
+		//	
+		
+		//interface Reloj{
+		//	public void decirHora();
+		//}		
 		System.out.println("========================");
 		Reloj r1 = new Reloj() {
 			public void decirHora() {
@@ -74,21 +76,25 @@ public class PruebasLambdas {
 		//Cuando el metodo solo tiene una línea nos podemos ahorrar las llaves del método		
 		Reloj r2 = () -> System.out.println(new Date());
 		r2.decirHora();			
-		
-		
+
+		//interface Saludador{
+		//	public void saludar(String nombre);
+		//}
 		System.out.println("========================");
 		Saludador s1 = new Saludador() {
 			public void saludar(String nombre) {
 				System.out.println("Hola "+nombre);
 			}
-		};
+		};		
 		s1.saludar("Luis Ramón");
 		
 		//Cuando el método recibe un único parámetro se pueden quitar los parentesis
 		Saludador s2 = nombre -> System.out.println("Hola "+nombre);
 		s2.saludar("Luis Ramón");
 
-		
+		//interface Calculador{
+		//	public void calcular(Double n1, Double n2);
+		//}		
 		System.out.println("========================");
 		Calculador c1 = new Calculador() {
 			public void calcular(Double n1, Double n2) {
@@ -96,12 +102,14 @@ public class PruebasLambdas {
 			}
 		};
 		c1.calcular(25d, 500d);
-		
+
 		//Cuando se recibe más de un parámetro los parentesis vuelven a ser obligatorios
 		Calculador c2 = (n1, n2) -> System.out.println(n1+n2);
 		c2.calcular(25d, 500d);
-		
-		
+
+		//interface Formateador{
+		//	public String formatear(String dato1, String dato2);
+		//}
 		System.out.println("========================");
 		Formateador f1 = new Formateador() {
 			public String formatear(String dato1, String dato2) {
@@ -113,15 +121,13 @@ public class PruebasLambdas {
 		//Cuando quitamos las llaves del método el return es IMPLÍCITO
 		Formateador f2 = (dato1, dato2) -> dato1+"+"+dato2;
 		System.out.println(f2.formatear("AAA", "BBB"));
-						
-
+		
 		//
 		//¿Son closures las expresiones lambda de java?
 		//
-		//NO
+		//NO: solo pueden utilizar variables declaradas fuera de ellas si son finales o 'efectivamente finales'
 		
-		/*
-		int m1 = 25;		
+		int m1=25;	
 		Consumer<Integer> multiplicador25 = m2 -> {
 			//m1++;
 			System.out.println(m1*m2);
@@ -131,13 +137,10 @@ public class PruebasLambdas {
 		multiplicador25.accept(10);
 		multiplicador25.accept(20);		
 		
-		System.exit(0);
-		*/
-		
-		
 		//
 		//Interfaces funcionales en el api de Java8
 		//
+		
 		
 		System.out.println("===========================================");
 		//consumer: public void accept(T t)
@@ -170,7 +173,6 @@ public class PruebasLambdas {
 
 }
 
-
 //
 //Interfaces funcionales: solo tienen un método
 //
@@ -197,6 +199,12 @@ interface Calculador{
 interface Formateador{
 	public String formatear(String dato1, String dato2);
 }
+
+
+
+
+
+
 
 
 

@@ -10,13 +10,12 @@ public class Pruebas {
 	public static void main(String[] args) throws IOException {
 		
 		GestorFicheros gf = new GestorFicheros();
-		
+
 		//Síncrono
 		System.out.println("===================================");
 		String contenidoStr = gf.leerFicheroSincrono("fichero.txt");
 		System.out.println(contenidoStr);
 	
-		
 		System.out.println("===================================");
 		Future<String> contenido = 	gf.leerFicheroAsincrono("fichero.txt");	
 		//
@@ -30,7 +29,6 @@ public class Pruebas {
 			e.printStackTrace();
 		}
 		
-		
 		System.out.println("===================================");
 		Future<String> contenido2 = gf.leerFicheroAsincrono2("fichero.txt");
 		//
@@ -43,7 +41,6 @@ public class Pruebas {
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
-		
 
 		System.out.println("===================================");
 		Future<String> contenido3 = gf.leerFicheroAsincrono3("fichero.txt");		
@@ -69,15 +66,14 @@ public class Pruebas {
 			System.out.println(contenido3Bis.get());
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
-		}			
-		
+		}	
 
 		System.out.println("===================================");
 		Future<String> contenido4 = gf.concatenar("fichero.txt", "fichero2.txt");
 		//
 		// Más historias
 		//
-		System.out.println("Dándolo todo con otras tareas...");
+		System.out.println("Dándolo todo con otras tareas..."+Thread.currentThread().getId());
 		
 		try {
 			System.out.println(contenido4.get());
@@ -85,7 +81,6 @@ public class Pruebas {
 			System.out.println(e.getMessage());
 			//e.printStackTrace();
 		}
-
 		
 		System.out.println("===================================");
 		Future<String> contenido5 = gf.concatenar2("fichero.txt", "fichero2.txt");		

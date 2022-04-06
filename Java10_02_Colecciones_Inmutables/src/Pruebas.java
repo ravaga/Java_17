@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import com.curso.modelo.Disco;
 
+
 public class Pruebas {
 
 	public static void main(String[] args) {
@@ -70,11 +71,17 @@ public class Pruebas {
 		discos.add(new Disco("Crime of the century"));
 		copiaInmutableList.forEach(d -> System.out.println(d));
 		
+
+		
 		System.out.println("==================================");	
-		//Strams; Collectors
-		List<String> palabrasInmutable2 = palabras.stream().collect(Collectors.toUnmodifiableList());
+		//Streams; Collectors
+		List<String> palabrasInmutable2 = 
+				palabras
+					.stream()
+					.collect(Collectors.toUnmodifiableList());
 		//palabrasInmutable2.add("???");
-	
+		
+
 	}	
 	
 }

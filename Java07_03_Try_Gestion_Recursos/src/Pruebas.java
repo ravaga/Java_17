@@ -45,16 +45,6 @@ public class Pruebas {
 			e.printStackTrace();
 		} 
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
 		//Limitación: No podemos declarar las variables antes del try
 		//Si lo necesitamos de verdad podemos hacer esto...
 		ClaseAutoCerrable obj = new ClaseAutoCerrable();
@@ -79,7 +69,6 @@ class ClaseAutoCerrable implements Closeable{
 	
 	@Override
 	public void close() throws IOException {
-		// TODO Auto-generated method stub
 		System.out.println("Cerrando la clase auto cerrable");
 	}
 	

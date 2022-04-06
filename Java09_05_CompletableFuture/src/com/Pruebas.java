@@ -9,11 +9,13 @@ public class Pruebas {
 
 	public static void main(String[] args) {
 
+		System.out.println("========================================");
 		String fichero = "fichero.txt";
 		
 		//            //
 		// OR TIMEOUT //
 		//            //
+		System.out.println("========================================");		
 		Future<String> dato = 
 			CompletableFuture.supplyAsync( () -> {
 				
@@ -39,10 +41,12 @@ public class Pruebas {
 		} catch (ExecutionException e) {
 			System.out.println(e.getMessage());
 		}
+		
 
 		//                     //
 		// COMPLETE ON TIMEOUT //
 		//                     //
+		System.out.println("========================================");			
 		Future<String> dato2 = 
 			CompletableFuture.supplyAsync( () -> {
 				
@@ -70,9 +74,11 @@ public class Pruebas {
 		}
 		
 
+
 		//                  //
 		// DELAYED EXECUTOR //
 		//                  //
+		System.out.println("========================================");	
 		System.out.println("Submit...");
 		Future<String> dato3 = 
 			CompletableFuture.supplyAsync( () -> {

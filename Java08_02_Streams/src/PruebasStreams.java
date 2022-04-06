@@ -92,6 +92,7 @@ public class PruebasStreams {
 			.stream()
 			.forEach( f -> System.out.println(f) );
 		
+		
 		//
 		//Filter. recibe un predicate
 		//predicate: public boolean test(T t)
@@ -126,7 +127,7 @@ public class PruebasStreams {
 				return fra.getCliente().getId()==id;
 			})
 			.forEach( fra -> System.out.println("3:"+fra));		
-		
+
 		//
 		//Iterator: devuelve un iterador
 		//Lo utilizamos para controlar nosotros el flujo de objetos que salen del stream
@@ -163,7 +164,6 @@ public class PruebasStreams {
 				.anyMatch( fra -> fra.getTotal()>200 );
 		System.out.println("Alguna de las facturas >200 €:"+ok2);	
 		
-		
 		//
 		//Máximo/mínimo con un comparador
 		//
@@ -174,8 +174,7 @@ public class PruebasStreams {
 		};		
 		
 		//Lo mismo con una expresión Lambda
-		Comparator<Factura> cf2 = 
-			(fra1, fra2) -> fra1.getTotal().intValue() - fra2.getTotal().intValue();		
+		Comparator<Factura> cf2 = (fra1, fra2) -> fra1.getTotal().intValue() - fra2.getTotal().intValue();		
 
 		//MAX
 		Optional<Factura> fMax = 
@@ -234,13 +233,6 @@ public class PruebasStreams {
 			.distinct()
 			.forEach( c -> System.out.println(c) );
 		
-		
-		List<String> textos = Arrays.asList("uno","dos","tres","cuatro","cinco");
-		textos
-			.stream()
-			.map( palabra -> palabra.toUpperCase())
-			.forEach(palabraMyusculas -> System.out.println(palabraMyusculas));
-
 		/*idem:
 		Stream<Cliente> streamClientes = 
 			facturas
@@ -264,16 +256,16 @@ public class PruebasStreams {
 		//un stream de tipo distinto
 		palabras
 			.stream()
-			.map( str -> str.toUpperCase() )
-			.forEach(str -> System.out.println(str) );	
-
+			.map( palabra -> palabra.toUpperCase())
+			.forEach(palabraMyusculas -> System.out.println(palabraMyusculas));		
+		
 		//
 		System.out.println("=======================================");				
 		facturas
 			.stream()
 			.map( fra -> new FacturaDTO(fra.getCodigo(), fra.getCliente().getNombre(), fra.getTotal()))
 			.forEach( fDTO -> System.out.println(fDTO) );		
-
+		
 		//
 		//collect: para agregar el resultado
 		//
@@ -295,7 +287,6 @@ public class PruebasStreams {
 				.collect(Collectors.toList());	
 		System.out.println(facturasDTO2);
 		
-
 		System.out.println("=======================================");				
 		List<Integer> numeros = Arrays.asList(1,2,3,4,5,6,7,8,9,10,11,12,13,14);		
 		List<Integer> pares = 
@@ -314,7 +305,7 @@ public class PruebasStreams {
 		System.out.println();
 		impares.forEach( num -> System.out.print(num+", "));
 		System.out.println();		
-		
+
 		//Obteniendo un mapa.
 		//El colector a mapa recibe dos funciones.
 		System.out.println("=======================================");		
@@ -324,7 +315,7 @@ public class PruebasStreams {
 				.stream()
 				.collect( Collectors.toMap( f -> f.getId(),
 						                    f -> f) );
-
+		
 		//Hasta java 7
 		Set<Integer> claves = mapa.keySet();
 		for( Integer k: claves){
@@ -333,7 +324,7 @@ public class PruebasStreams {
 		
 		//En java 8 tenemos el metodo forEach en mapas
 		mapa.forEach((k, v) -> System.out.println(k+":"+v) );
-		
+
 		//Agregando con sumatorio y media
 		System.out.println("=======================================");				
 		
@@ -355,7 +346,7 @@ public class PruebasStreams {
 			numeros
 				.stream()
 				.collect(Collectors.summarizingInt( num -> num ));
-		System.out.println(movida);		
+		System.out.println(movida);	
 		
 		//
 		//Join (agregacion): obtenemos un string a partir del stream
@@ -365,7 +356,6 @@ public class PruebasStreams {
 				.map( num -> num.toString() )
 				.collect(Collectors.joining(", ", "Numeros:", "."));
 		System.out.println(txt);		
-
 
 		//
 		//'group by' (agregación)
@@ -388,7 +378,6 @@ public class PruebasStreams {
 					.collect( Collectors.groupingBy( fra -> fra.getCliente().getId() ));
 		rs2.forEach( (k, v) -> System.out.println( k+":"+v) );
 	
-		
 		//
 		//Flat map
 		//
@@ -407,13 +396,15 @@ public class PruebasStreams {
 		clientes.add(c2);
 		clientes.add(c3);		
 		
+		//Queremos las facturas a partir de esa lista de clientes
 		//Sin flat map
 		List<Factura> facturitas = new ArrayList<>();
 		clientes
 			.stream() //un stream de clientes
 			.map(c -> c.getFacturas()) //un stream de listas de facturas
+			//.forEach(x -> System.out.println(x));
 			.forEach( lista -> lista.forEach(f -> facturitas.add(f)) );
-
+		
 		//Mejor con flat map:
 		List<Factura> facturitas2 = 
 			clientes
@@ -421,7 +412,7 @@ public class PruebasStreams {
 				.flatMap( c -> c.getFacturas().stream() )
 				.collect(Collectors.toList());
 		System.out.println(facturitas2);
-		 
+
 		//
 		//Reduce  
 		//
@@ -461,6 +452,8 @@ public class PruebasStreams {
 		if( pMedia.isPresent()) {
 			System.out.println(pMedia.get());
 		}
+		
+		
 				
 		Optional<Factura> optF3 = 
 			facturas
@@ -474,7 +467,6 @@ public class PruebasStreams {
 							});
 		System.out.println(optF3.get()); //La factura con mayor importe
 										 //El resultado es el mismo que si hubieramos usado 'max'
-		
 		
 		
 		//
@@ -493,9 +485,10 @@ public class PruebasStreams {
 
 		palabras
 		    .stream()
-		    .filter( s -> s.startsWith("aaa"))
+		    //.filter( s -> s.startsWith("aaa"))
 		    .sorted()
 		    .forEach( s -> System.out.println(s));
+		
 		
 		//
 		//Multi hilo
@@ -523,7 +516,7 @@ public class PruebasStreams {
 			.forEach(s ->   System.out.format("forEach: %s [%s]\n", s, Thread.currentThread().getName()));			
 		
 		//Metodos colocados al comienzo del stream
-		// ... 
+		// No hay 
 		
 		//Metodos 'en el medio'
 		//filter   : stream

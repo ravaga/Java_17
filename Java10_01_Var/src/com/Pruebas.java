@@ -41,7 +41,7 @@ public class Pruebas {
 		
 		//A veces utilizar var implica que nuestro código es menos legible
 		var x = getSaludo();
-		//Mejor así:
+		//Mejor así?
 		String y = getSaludo();
 		
 	}	

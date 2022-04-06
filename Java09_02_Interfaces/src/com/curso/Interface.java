@@ -29,7 +29,7 @@ public interface Interface {
 	
 	//Metodos dinámicos y privados
 	private void metodo5() {
-		System.out.println("Métodos privados en interfaces de Java9");
+		System.out.println("Métodos privados y dinámicos en interfaces de Java9");
 	}
 
 	static void metodo6() {

@@ -16,11 +16,9 @@ public class GestorFicheros {
 	//Síncrono
 	//
 	public String leerFicheroSincrono(String fichero) throws IOException{
-
 		Path path = Paths.get(fichero);
 		byte[] contenido = Files.readAllBytes(path);
 		return new String(contenido);
-		
 	}	
 	
 	//
@@ -47,8 +45,7 @@ public class GestorFicheros {
 				} catch (IOException e) {
 					e.printStackTrace();
 					cf.complete("No existe el fichero");
-				}
-				
+				}				
 			});
 		
 		return cf;
@@ -90,7 +87,6 @@ public class GestorFicheros {
 	public Future<String> leerFicheroAsincrono3(String fichero){
 		
 		return CompletableFuture.supplyAsync(
-			//Callable o Runnable?
 			() -> {
 				try {
 					Thread.sleep(1000);
@@ -119,7 +115,6 @@ public class GestorFicheros {
 		//CompletableFuture.supplyAsync(Supplier, Executor);
 		
 		return CompletableFuture.supplyAsync(
-			//Callable o Runnable?
 			() -> {
 				try {
 					Thread.sleep(1000);

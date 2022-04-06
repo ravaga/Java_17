@@ -10,7 +10,7 @@ public class Pruebas {
 		System.out.println("============================");
 		
 		//Disponemos de expresiones lambda desde Java 8		
-		BiConsumer<String, String> ejemplo1 = (s1,s2) -> System.out.println(s1+"-"+s2);
+		BiConsumer<String, String> ejemplo1 = (s1, s2) -> System.out.println(s1+"-"+s2);
 		ejemplo1.accept("Hola","Raffaella");
 		
 		//Disponemos de variables definidas con 'var' desde Java 10		

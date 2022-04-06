@@ -32,8 +32,8 @@ public class Pruebas {
 		
 		Interfaz interfaz = null;
 		//interfaz.metodoEstatico(); No compila
-		//interfaz.metodo();
-		//interfaz.saludar();
+		interfaz.metodo();
+		interfaz.saludar();
 		
 	}
 	
