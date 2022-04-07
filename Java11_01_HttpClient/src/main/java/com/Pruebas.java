@@ -1,6 +1,7 @@
 package com;
 
 import java.io.IOException;
+import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -34,14 +35,15 @@ public class Pruebas {
 		 
 		//Otra manera
 		//La clase tiene 'fluent api'
-		HttpRequest request2 =HttpRequest.newBuilder()
-		  .uri(new URI("http://localhost:8080/discos"))
-		  .build();
+		HttpRequest request2 =HttpRequest
+			.newBuilder()
+			.uri(new URI("http://localhost:8080/discos"))
+			.build();
 		
 		//Especificando el método HTTP (por defecto GET)
 		HttpRequest request3 = HttpRequest.newBuilder()
 		  .uri(new URI("http://localhost:8080/discos"))
-		  .GET()
+		  .GET() 
 		  .build();
 		
 		//Versión del protocolo HTTP (por defecto HTTP/2)

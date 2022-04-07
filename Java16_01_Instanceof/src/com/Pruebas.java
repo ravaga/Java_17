@@ -17,7 +17,7 @@ public class Pruebas {
 			Cliente cli = (Cliente) obj;
 			cli.setNombre("Ringo Starr");
 		}
-		
+	
 		//Azucar sintáctico del bueno: el cast es implícito
 		if(obj instanceof Cliente c) {
 			c.setNombre("Malcolm Young");

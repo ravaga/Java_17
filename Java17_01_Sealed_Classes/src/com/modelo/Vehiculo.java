@@ -10,7 +10,7 @@ import com.modelo.otroPaquete.Furgoneta;
 //
 //
 //Con las clases selladas podemos tener una clase con acceso público que de la que pueden heredar
-//otras situadas en distintos paquetesa, manteniendo el control de cuáles son estas
+//otras situadas en distintos paquetes, manteniendo el control de cuáles son estas
 //
 //Las clases que hereden de una clase sellada han de ser finales o selladas a su vez
 //

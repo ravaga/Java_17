@@ -10,10 +10,9 @@ public record Producto(Integer id, String nombre, String fabricante) {
 	
 	@Override
 	public boolean equals(Object otroObjeto) {
-		if(!(otroObjeto instanceof Producto)) {
+		if(!(otroObjeto instanceof Producto otroProducto)) {
 			return false;
 		}
-		Producto otroProducto = (Producto) otroObjeto;
 		return id.equals(otroProducto.id);
 	}
 	

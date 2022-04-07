@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -50,32 +51,32 @@ public class ServicioRest {
 	@PostMapping("/discos")
 	public ResponseEntity<Object> insertar(@Valid @RequestBody Disco disco, BindingResult br){
 		if(br.hasErrors()) {
-			return new ResponseEntity<Object>(br.getAllErrors(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(br.getAllErrors(), HttpStatus.BAD_REQUEST);
 		}
 		disco.setId(System.currentTimeMillis());
 		ServicioRest.discos.add(disco);
-		return new ResponseEntity<Object>(disco, HttpStatus.CREATED);
+		return new ResponseEntity<>(disco, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/discos/{id}")
-	public ResponseEntity<Object> modificar(@Valid @RequestBody Disco disco, @RequestParam("id") Long id, BindingResult br){
+	public ResponseEntity<Object> modificar(@Valid @RequestBody Disco disco, @PathVariable("id") Long id, BindingResult br){
 		if(br.hasErrors()) {
-			return new ResponseEntity<Object>(br.getAllErrors(), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(br.getAllErrors(), HttpStatus.BAD_REQUEST);
 		}
 		
 		disco.setId(id);		
 		int pos = discos.indexOf(disco);
 		if(pos == -1) {
-			return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
 		discos.set(pos, disco);
-		return new ResponseEntity<Object>(HttpStatus.OK);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 
 	@DeleteMapping("/discos/{id}")
-	public ResponseEntity<Void> borrar(@RequestParam("id") Long id){
+	public ResponseEntity<Void> borrar(@PathVariable("id") Long id){
 		boolean eliminado = discos.removeIf(d -> d.getId()==id);
 		if(!eliminado) {
 			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
@@ -84,13 +85,13 @@ public class ServicioRest {
 	}	
 
 	@GetMapping("/discos/{id}")
-	public ResponseEntity<Disco> buscar(@RequestParam("id") Long id){
+	public ResponseEntity<Disco> buscar(@PathVariable("id") Long id){
 		return discos
 				.stream()
-				.filter(d -> d.getId()==id)
-				.map( d -> new ResponseEntity<Disco>(d, HttpStatus.OK))
+				.filter(d -> d.getId()==id) //De aqui saldría un disco
+				.map( d -> new ResponseEntity<>(d, HttpStatus.OK)) //De aqui sale un ReponseEntity
 				.findFirst()
-				.orElse(new ResponseEntity<Disco>(HttpStatus.NOT_FOUND));
+				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
 	@GetMapping("/discos")

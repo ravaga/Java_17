@@ -20,6 +20,20 @@ public class Cliente {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	
+	//Hasta Java 15
+	/*
+	public boolean equals(Object otroObjecto) {
+		
+		if(!(otroObjecto instanceof Cliente)){
+			return false;
+		}
+		Cliente otroCliente = (Cliente) otroObjecto;
+		
+		return true;
+	}
+	*/	
 	
 	//Un equals más reducido con el nuevo instanceof
 	public boolean equals(Object otroObjeto) {

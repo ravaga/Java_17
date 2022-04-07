@@ -13,7 +13,7 @@ public class Pruebas {
 		//
 		
 		String txt = "aAa";
-		switch(txt) {		
+		switch(txt) { //Desde Java 1.7 se pueden utilizar cadenas de texto en un switch :D
 			case "aaa","aAa" : 
 				System.out.println("AAA");
 				break;

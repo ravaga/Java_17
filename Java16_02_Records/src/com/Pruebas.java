@@ -13,7 +13,7 @@ public class Pruebas {
 		System.out.println("=====================================");
 		Cliente c = new Cliente(1,"Bud Spencer","Strada del guantazi","123456789");
 		System.out.println(c);
-		//No siguen la especificación Java bean
+		//No siguen la especificación Java bean para los métodos accesores!
 		System.out.println(c.id());
 		System.out.println(c.nombre());
 		System.out.println(c.direccion());

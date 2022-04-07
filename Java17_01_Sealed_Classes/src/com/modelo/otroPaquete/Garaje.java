@@ -10,9 +10,9 @@ public final class Garaje /*extends Vehiculo*/ {
 
 	private List<Vehiculo> vehiculos;
 	
-	/*@Override
+	//@Override
 	public void arrancar() {
 		
-	}*/
+	}
 
 }

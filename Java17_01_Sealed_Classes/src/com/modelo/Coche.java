@@ -1,6 +1,6 @@
 package com.modelo;
 
-//Las clases que heredan de superclase sellada han de ser finales
+//Las clases que heredan de superclase sellada han de ser finales o selladas
 public final class Coche extends Vehiculo {
 
 	@Override

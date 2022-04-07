@@ -18,9 +18,9 @@ public class Pruebas {
 			Cuatro
 			Cinco				
 			""";
-
+		
 		//Sangrando mal...
-					String texto2 = """                    
+					String texto2 = """                  
 							Uno
 							Dos
 							Tres
@@ -37,10 +37,10 @@ public class Pruebas {
 				Cinco				
 			""";		
 		String texto4 = """                    
-				Uno
 				Dos
 				Tres
 				Cuatro
+				Uno
 				Cinco				
 		""";		
 					
@@ -50,7 +50,7 @@ public class Pruebas {
 		System.out.println(texto2); //Aparece exactamente igual
 		System.out.println(texto3);
 		System.out.println(texto4);
-	
+		
 		//Escapando (barbarismo?) las tres comillas
 		System.out.println("===================================");
 		String texto5 = """
