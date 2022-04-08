@@ -5,7 +5,7 @@ package com;
 //
 
 //Heredan de java.lang.Record
-//Pueden declararse dentro de un clase. Serán implícitamente estáticos
+//Pueden declararse dentro de una clase. Serán implícitamente estáticos
 //Pueden utilizar generics
 //Pueden implementar interfaces
 
