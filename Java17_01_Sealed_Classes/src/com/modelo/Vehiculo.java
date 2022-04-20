@@ -14,8 +14,6 @@ import com.modelo.otroPaquete.Furgoneta;
 //
 //Las clases que hereden de una clase sellada han de ser finales o selladas a su vez
 //
-public abstract sealed class Vehiculo permits Coche, Camion, Furgoneta {
-	
-	public abstract void arrancar();
-	
+public abstract sealed class Vehiculo permits Coche, Camion, Furgoneta {	
+	public abstract void arrancar();	
 }

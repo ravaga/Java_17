@@ -8,6 +8,8 @@ package com;
 //Pueden declararse dentro de una clase. Serán implícitamente estáticos
 //Pueden utilizar generics
 //Pueden implementar interfaces
+//Por defecto inmutables
+//Métodos accesores llamados como los atributos (sin 'get')
 
 //Se instancian con new
 //Pueden tener 
