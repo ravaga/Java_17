@@ -1,43 +1,69 @@
-
-
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import com.curso.ArrayListChungo;
-import com.curso.ArrayListChungoConGenerics;
 
 public class Pruebas {
 
 	public static void main(String[] args) {
-	
-		ArrayListChungo palabras = new ArrayListChungo();
 		
-		palabras.add("Siete");
-		palabras.add("caballos");
-		palabras.add("vienen");
-		palabras.add("de");
-		palabras.add("Bonanza");
+		/*
+		ArrayList lista = new ArrayList();
 		
-		for(int a=0; a<palabras.size(); a++) {
-			//El cast es necesario
-			String palabra = (String) palabras.get(a);
-			System.out.println(palabra);
-		}
+		lista.add("HOLA");
+		lista.add(new Integer(50));
+		lista.add(33); //Autoboxing
+		lista.add(new Scanner(System.in));
 		
-		ArrayListChungoConGenerics<String> palabras2 = new ArrayListChungoConGenerics<String>();
+		ArrayList palabras = new ArrayList();
+		palabras.add("BO");
+		palabras.add("QUE");
+		palabras.add("PASA");
 		
-		palabras2.add("Siete");
-		palabras2.add("caballos");
-		palabras2.add("vienen");
-		palabras2.add("de");
-		palabras2.add("Bonanza");
-		//palabras2.add(new Integer(1000));
+		//Aunque sepamos que solo hay strings, debemos hacer el cast
+		String txt = (String) palabras.get(0);
 		
-		for(int a=0; a<palabras2.size(); a++) {
-			String palabra = palabras2.get(a);
-			System.out.println(palabra);
-		}		
+		//Lo peor: podemos añadir cualquier otra cosa a nuestra lista de palabras
+		//Es un problema en potencia
+		palabras.add(50);
+		
+		ArrayListChungo<String> palabras2 = new ArrayListChungo<String>();
+		palabras2.add("DOLOR DE ESPALDA");
+		//palabras2.add(100); //Error!! Solo admite Strings
+		
+		String txt2 = palabras2.get(0); //No es necesario el cast.
+		
+		
+		GrabadorDeDatos<FileWriter> gdd = new GrabadorDeDatos<FileWriter>();
+		//GrabadorDeDatos<Scanner> gdd2 = new GrabadorDeDatos<Scanner>();
+		*/
+		
+		//METODOS GENERICOS
+		Veterinario<Perro> v = new Veterinario<Perro>();
+		Perro p = new Perro();
+		Gato g = new Gato();
+		v.tratarAnimal(p);
+		
+		List<Perro> jauria2 = new ArrayList<Perro>();
+		Set<Perro> jauria3 = new HashSet<Perro>();
+		
+		List<Gato> gatos = new ArrayList<Gato>();
+		List<Pajaro> pajaros = new ArrayList<Pajaro>();
+		
+		v.examinarAnimales(gatos);
+		v.examinarAnimales(pajaros);
+		v.examinarAnimales(jauria2);
+		v.examinarAnimales(jauria3);
+
+		//v.examinarAnimales2(gatos);
+		v.examinarAnimales2(jauria2);
 		
 	}
 	
 }
+
+
+
+
+
