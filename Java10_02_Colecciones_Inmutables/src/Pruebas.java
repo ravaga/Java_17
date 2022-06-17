@@ -64,23 +64,20 @@ public class Pruebas {
 		//         //	
 		
 		System.out.println("==================================");
-		//CopyOf
+		//Con copyOf podemos crear una colección inmutable (inmutable verdad) a partir de otra colección
 		List<Disco> copiaInmutableList = List.copyOf(discos);	
 		discos.add(new Disco("Abbey Road"));
 		discos.add(new Disco("Selling England by the pound"));
 		discos.add(new Disco("Crime of the century"));
 		copiaInmutableList.forEach(d -> System.out.println(d));
-		
-
-		
+				
 		System.out.println("==================================");	
 		//Streams; Collectors
 		List<String> palabrasInmutable2 = 
 				palabras
 					.stream()
 					.collect(Collectors.toUnmodifiableList());
-		//palabrasInmutable2.add("???");
-		
+		//palabrasInmutable2.add("???");		
 
 	}	
 	

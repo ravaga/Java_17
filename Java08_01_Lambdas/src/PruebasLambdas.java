@@ -88,7 +88,7 @@ public class PruebasLambdas {
 		};		
 		s1.saludar("Luis Ramón");
 		
-		//Cuando el método recibe un único parámetro se pueden quitar los parentesis
+		//Cuando el método recibe un único parámetro y no se indica el tipo se pueden quitar los parentesis 
 		Saludador s2 = nombre -> System.out.println("Hola "+nombre);
 		s2.saludar("Luis Ramón");
 

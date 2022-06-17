@@ -1,7 +1,5 @@
 package com.modelo.otroPaquete;
 
-import com.modelo.Vehiculo;
-
 public final class CamionArticulado extends Camion {
 
 	@Override

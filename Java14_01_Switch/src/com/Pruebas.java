@@ -40,6 +40,8 @@ public class Pruebas {
 		//
 		//Switch puede devolver un valor
 		//
+		
+		//Antes
 		int mes = 4;
 		int trimestre = 0; 
 		switch(mes) {

@@ -5,14 +5,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Pruebas {
-
-	//
-	//
-	//
-	//
-	//
-	//
-	//
 	
 	public static void main(String[] args) throws IOException {
 		

@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class Pruebas {
 
+	/////////////////////////////
+	// var: variables sin tipo //
+	/////////////////////////////
+	
 	//var solo puede utilizarse en variables automáticas (locales)
 	//public var texto = "NO";
 		
@@ -48,8 +52,7 @@ public class Pruebas {
 	
 	public static String getSaludo() {
 		return "¡Hola!";
-	}
-	
+	}	
 	
 }
 

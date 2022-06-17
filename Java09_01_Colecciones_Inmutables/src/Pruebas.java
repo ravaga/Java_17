@@ -36,6 +36,7 @@ public class Pruebas {
 		discosInmutable.forEach( d -> d.setTitulo(d.getTitulo().toUpperCase()));
 		discosInmutable.forEach( d -> System.out.println(d));
 		
+		//Si modificamos el array list original...
 		System.out.println("==================================");
 		discos.add(new Disco("Dark side of the moon"));
 		discos.add(new Disco("Machine head"));
@@ -46,6 +47,8 @@ public class Pruebas {
 		//        //
 		// Java 9 //
 		//        //
+		
+		//Ya no hay manera de modificar estas colecciones
 		System.out.println("==================================");
 		
 		List<Disco> discosInmutable2 = List.of(

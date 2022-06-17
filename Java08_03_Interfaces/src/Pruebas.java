@@ -20,7 +20,9 @@ public class Pruebas {
 		
 		//Métodos estáticos
 		Clase1 c1 = new Clase1();
+		//Esto está mal, pero se puede hacer
 		c1.metodoEstatico();
+		//Lo correcto es utilizar la clase
 		Clase1.metodoEstatico();
 		
 		//No podemos acceder a los métodos estáticos de la interfaz utilizando una variable
@@ -30,6 +32,7 @@ public class Pruebas {
 		//Tenemos que utilizar la interfaz para ello
 		Interfaz.metodoEstatico();
 		
+		//Tampoco nos dejan aunque utilizemos una variable del tipo 'Interfaz'
 		Interfaz interfaz = null;
 		//interfaz.metodoEstatico(); No compila
 		interfaz.metodo();

@@ -49,6 +49,12 @@ public class Pruebas {
 		//javafx.swing
 		//javafx.web
 
+		
+		//
+		//Solo podemos importar las clases que estén en los módulos añadidos al proyecto
+		//Y ya no es posible utilizar las clases pensadas para la JVM
+		//
+		
 		// Contenidas en el módulo java.base
 		String txt;
 		Socket sk;
@@ -64,11 +70,14 @@ public class Pruebas {
 		// requires java.naming;
 		InitialContext iCtx;
 		
+			
 		Saludador s = new Saludador();
 		System.out.println(s.saludar("Luis Ramón"));
 		
 		Util u = new Util();
 		u.metodo();
+		
+		
 
 	}
 

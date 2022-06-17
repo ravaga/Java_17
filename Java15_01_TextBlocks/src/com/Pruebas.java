@@ -10,7 +10,7 @@ public class Pruebas {
 		//
 		
 		//Tras las primeras tres comillas dobles no puede colocarse nada, ni siquiera un comentario
-		//La cadena de texto comienza en la línea 10
+		//La cadena de texto comienza en la línea 15
 		String texto1 = """                    
 			Uno
 			Dos
@@ -19,7 +19,7 @@ public class Pruebas {
 			Cinco				
 			""";
 		
-		//Sangrando mal...
+		//El sangrado del código no afecta al bloque de texto. texto2 es igual a texto1 
 					String texto2 = """                  
 							Uno
 							Dos
@@ -68,21 +68,19 @@ public class Pruebas {
 		String texto6 = """
 			Uno      
 			Dos      
-			Tres     """;
+			Tres     """; //despues de 'Tres' tampoco hay espacios en blanco
 		//Si queremos incluir espacios al final de cada línea:
 		String texto7 = """
 			Uno      \s
 			Dos      \s
-			Tres     \s""";
-		
+			Tres     \s""";	//Ahora si
 		System.out.println(texto6+":");
 		System.out.println(texto7+":");
 
 		//Añadiendo variables
 		System.out.println("===================================");
 		String nombre = "Harry Callahan";
-		String empleo = "SFPD";
-		
+		String empleo = "SFPD";		
 		String texto8 = """
 			Nombre: %s
 			Empleo: %s	

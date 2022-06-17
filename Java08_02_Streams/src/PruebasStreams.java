@@ -92,7 +92,6 @@ public class PruebasStreams {
 			.stream()
 			.forEach( f -> System.out.println(f) );
 		
-		
 		//
 		//Filter. recibe un predicate
 		//predicate: public boolean test(T t)

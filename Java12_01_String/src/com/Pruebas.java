@@ -18,11 +18,9 @@ public class Pruebas {
 		txt1 = txt1.indent(10);
 		txt2 = txt2.indent(10);
 
-		
 		System.out.println("----------------------------");
 		System.out.println(txt1);
 		System.out.println(txt2);
-
 
 		//-5 caracteres de sangrado
 		txt1 = txt1.indent(-5);
@@ -39,10 +37,12 @@ public class Pruebas {
 		System.out.println("----------------------------");
 		System.out.println(txt1);
 		System.out.println(txt2);
-		
+
 		//
 		//TRANSFORM
 		//
+		
+		//Para poder utilizar expresiones lambda a la hora de procesar cadenas de texto
 		System.out.println("============================");
 		String txt3 = "Hola Radiola";
 		String txt4 = txt3.toUpperCase();

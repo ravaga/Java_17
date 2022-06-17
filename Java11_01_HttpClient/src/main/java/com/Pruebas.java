@@ -21,7 +21,7 @@ public class Pruebas {
 	public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
 		
 		//
-		//Clase HttpRequest
+		//Clase HttpRequest: representa la petición HTTP que queremos enviar
 		//
 		
 		//
@@ -41,20 +41,24 @@ public class Pruebas {
 			.build();
 		
 		//Especificando el método HTTP (por defecto GET)
-		HttpRequest request3 = HttpRequest.newBuilder()
+		HttpRequest request3 = HttpRequest
+		  .newBuilder()
 		  .uri(new URI("http://localhost:8080/discos"))
 		  .GET() 
 		  .build();
 		
+		//HttpRequest aporta como novedad HTTP/2
 		//Versión del protocolo HTTP (por defecto HTTP/2)
-		HttpRequest request4 = HttpRequest.newBuilder()
+		HttpRequest request4 = HttpRequest
+		   .newBuilder()
 		  .uri(new URI("http://localhost:8080/discos"))
 		  .version(HttpClient.Version.HTTP_2)
 		  .GET()
 		  .build();
 		
 		//Headers
-		HttpRequest request5 = HttpRequest.newBuilder()
+		HttpRequest request5 = HttpRequest
+			.newBuilder()
 			.uri(new URI("http://localhost:8080/discos"))
 			.version(HttpClient.Version.HTTP_2)
 			.header("accept", "application/json")
@@ -69,7 +73,11 @@ public class Pruebas {
 		  .GET()
 		  .build();
 		
+		//
 		//Body
+		//
+		
+		//Sin body :)
 		HttpRequest request7 = HttpRequest.newBuilder()
 		  .uri(new URI("http://localhost:8080/discos"))
 		  .POST(HttpRequest.BodyPublishers.noBody())
@@ -86,21 +94,24 @@ public class Pruebas {
 		  .build();
 		
 		//
-		//Clase HttpClient
+		//Clase HttpClient: La que utilizamos para enviar las peticiones
 		//
 		HttpClient httpClient = HttpClient.newBuilder().build();
 		
 		//
 		//Clase HttpResponse
 		//
+		System.out.println("======================================");
 		HttpResponse<String> response1 = httpClient.send(request1, BodyHandlers.ofString());
 		System.out.println(response1.statusCode());
 		System.out.println(response1.headers());
 		System.out.println(response1.body());
 		
+		System.out.println("======================================");
 		HttpResponse<String> response2 = httpClient.send(request8, BodyHandlers.ofString());
 		System.out.println(response2.body());
 
+		System.out.println("======================================");
 		HttpResponse<String> response3 = httpClient.send(request1, BodyHandlers.ofString());
 		System.out.println(response3.body());
 		
