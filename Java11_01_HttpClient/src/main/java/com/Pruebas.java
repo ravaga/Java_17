@@ -105,6 +105,8 @@ public class Pruebas {
 		System.out.println(response1.headers());
 		System.out.println(response1.body());
 		
+		System.exit(0);
+		
 		System.out.println("======================================");
 		HttpResponse<String> response2 = httpClient.send(request8, BodyHandlers.ofString());
 		System.out.println(response2.body());
