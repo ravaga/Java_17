@@ -63,6 +63,7 @@ public class Factura implements Comparable<Factura>{
 	}
 
 	@Override
+	//El orden natural de las facturas en esta aplicacion es por importe
 	public int compareTo(Factura otraFactura) {
 		return total.intValue()-otraFactura.total.intValue();
 	}
