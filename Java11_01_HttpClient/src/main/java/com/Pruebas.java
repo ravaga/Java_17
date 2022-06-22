@@ -1,7 +1,6 @@
 package com;
 
 import java.io.IOException;
-import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -12,7 +11,6 @@ import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
 import com.curso.servicio.Disco;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Pruebas {

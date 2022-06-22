@@ -90,7 +90,7 @@ public class ServicioRest {
 				.stream()
 				.filter(d -> d.getId()==id) //De aqui saldría un disco
 				.map( d -> new ResponseEntity<>(d, HttpStatus.OK)) //De aqui sale un ReponseEntity
-				.findFirst()
+				.findFirst() //devuelve optional
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
