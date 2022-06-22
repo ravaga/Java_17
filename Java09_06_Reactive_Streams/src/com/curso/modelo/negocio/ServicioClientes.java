@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.curso.modelo.entidad.Cliente;
 
-public class GestorClientes {
+public class ServicioClientes {
 
 	private static List<Cliente> clientes;
 	
@@ -25,12 +25,17 @@ public class GestorClientes {
 	
 	//Devuelve el clliente sin facturas ni pedidos
 	public Optional<Cliente> buscarCliente(Integer id){
+		System.out.println("   ServicioClientes.......... Buscando los datos del cliente "+id);
 		for(Cliente c:clientes) {
 			if(c.getId().equals(id)) {
 				return Optional.of(c);
 			}
 		}
 		return Optional.empty();
+	}
+	
+	public void insertarCliente(Cliente cliente) {
+		System.out.println("   Servicio clientes......... Insertando el cliente en la BB.DD:"+cliente);
 	}
 	
 }

@@ -7,9 +7,10 @@ import java.util.Optional;
 
 import com.curso.modelo.entidad.Factura;
 
-public class GestorFacturas {
+public class ServicioFacturas {
 
 	public Optional<List<Factura>> getFacturasCliente(Integer idCliente){
+		System.out.println("   ServicioFacturas.......... Buscando las facturas del cliente "+idCliente);
 		//Añade a cada cliente un número de facturas generadas aleatoriamente
 		List<Factura> facturas = new ArrayList<>();
 		for(int a=0; a<Long.valueOf(Math.round(Math.random()*5)+2); a++) {
