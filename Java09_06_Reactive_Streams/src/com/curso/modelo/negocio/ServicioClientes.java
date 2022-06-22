@@ -23,7 +23,7 @@ public class ServicioClientes {
 		);	
 	}
 	
-	//Devuelve el clliente sin facturas ni pedidos
+	//Devuelve el cliente sin facturas ni pedidos
 	public Optional<Cliente> buscarCliente(Integer id){
 		System.out.println("   ServicioClientes.......... Buscando los datos del cliente "+id);
 		for(Cliente c:clientes) {

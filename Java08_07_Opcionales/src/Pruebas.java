@@ -38,7 +38,7 @@ public class Pruebas {
 		//System.out.println(p4bis.getTitulo());
 		
 		//
-		//isPresent
+		//isPresent. Si anidamos los 'ifPresent' es una chapuza
 		//
 		Optional<Pelicula> pOp = peliculaRepo.buscarOptional(1);
 		if( pOp.isPresent() ){
@@ -80,10 +80,7 @@ public class Pruebas {
 		//OrElse: Entrega un valor por defecto si el opcional esta vacio
 		//
 		System.out.println("========================");
-		Optional<Pelicula> peliculaOp = peliculaRepo.buscarOptional(1);		
-		
-		String ciudad = 
-			peliculaOp
+		String ciudad = peliculaRepo.buscarOptional(1)
 				.flatMap( p -> p.getDirector() )
 				.flatMap( d -> d.getDireccion() )
 				.map( dir -> dir.getCiudad() )
@@ -93,8 +90,7 @@ public class Pruebas {
 		//
 		//OrElse
 		//
-		String ciudad2 =
-			peliculaOp
+		String ciudad2 = peliculaRepo.buscarOptional(1)
 				.flatMap( p -> p.getDirector() )
 				.flatMap( d -> d.getDireccion() )
 				.map( dir -> dir.getCiudad() )

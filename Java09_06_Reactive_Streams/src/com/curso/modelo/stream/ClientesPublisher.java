@@ -9,6 +9,7 @@ import com.curso.modelo.entidad.Cliente;
 
 //
 // Esta clase utiliza un SubmissionPublisher para enviar elementos a un stream
+// No hereda ni implementa nada
 //
 public class ClientesPublisher {
 	
@@ -24,11 +25,13 @@ public class ClientesPublisher {
 	
 	//Envía el elemento al primer eslabón del stream
 	public void publicarCliente(Cliente cliente) {
+		System.out.println(Thread.currentThread().getId()+"-ClientesPublisher.......... Publicando cliente "+cliente);		
 		publisher.submit(cliente);
 	}	
 
 	//Para indicar a los subscriptores que no habrá más elementos
 	public void finalizarStream() {
+		System.out.println(Thread.currentThread().getId()+"-ClientesPublisher.......... Cerrando el stream");		
 		publisher.close();
 	}		
 	

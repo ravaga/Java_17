@@ -224,8 +224,7 @@ public class PruebasStreams {
 		//
 		//Map: Para obtener un stream de objetos distintos de los originales
 		//
-		System.out.println("=======================================");		
-		
+		System.out.println("=======================================");				
 		facturas
 			.stream() //de aqui salen facturitas ricas
 			.map( fra -> fra.getCliente() ) //a partir de aqui tenemos un stream nuevo de clientes
@@ -349,6 +348,7 @@ public class PruebasStreams {
 		
 		//
 		//Join (agregacion): obtenemos un string a partir del stream
+		//
 		String txt = 
 			numeros
 				.stream()
@@ -358,6 +358,7 @@ public class PruebasStreams {
 
 		//
 		//'group by' (agregación)
+		//
 		System.out.println("=======================================");				
 
 		//Agrupando facturas por el cliente
@@ -391,7 +392,7 @@ public class PruebasStreams {
 		c3.getFacturas().add(new Factura("FAC-107"));
 		c3.getFacturas().add(new Factura("FAC-108"));
 		List<Cliente> clientes = new ArrayList<>();
-		clientes.add(c1);
+		clientes.add(c1); 
 		clientes.add(c2);
 		clientes.add(c3);		
 		
@@ -400,17 +401,23 @@ public class PruebasStreams {
 		List<Factura> facturitas = new ArrayList<>();
 		clientes
 			.stream() //un stream de clientes
-			.map(c -> c.getFacturas()) //un stream de listas de facturas
+			.map(c -> c.getFacturas()) //salen listas de facturas
 			//.forEach(x -> System.out.println(x));
+			//Esto es muy cutre:
 			.forEach( lista -> lista.forEach(f -> facturitas.add(f)) );
 		
 		//Mejor con flat map:
+		//Flatmap: recibe una colección y de él sale un stream con cada uno de los elementos de la colección
 		List<Factura> facturitas2 = 
 			clientes
-				.stream()
-				.flatMap( c -> c.getFacturas().stream() )
+				.stream() //un stream de clientes
+				.flatMap( c -> c.getFacturas().stream() ) //Aqui llega un objeto y sale un stream hecho a partir de una colección
 				.collect(Collectors.toList());
 		System.out.println(facturitas2);
+		
+		
+		System.exit(0);;
+
 
 		//
 		//Reduce  
@@ -451,8 +458,6 @@ public class PruebasStreams {
 		if( pMedia.isPresent()) {
 			System.out.println(pMedia.get());
 		}
-		
-		
 				
 		Optional<Factura> optF3 = 
 			facturas

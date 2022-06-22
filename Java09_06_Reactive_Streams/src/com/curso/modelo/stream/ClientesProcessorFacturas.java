@@ -20,6 +20,7 @@ public class ClientesProcessorFacturas extends ClientesProcessor {
 		super(executorService);
 	}
 	
+	@Override
 	public Cliente procesarCliente(Cliente cliente) throws Exception {
 		System.out.println(Thread.currentThread().getId()+"-ClientesProcessorFacturas. Elemento recibido: "+cliente);
 		Optional<List<Factura>> facOp = servicioPedidos.getFacturasCliente(cliente.getId());

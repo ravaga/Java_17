@@ -31,7 +31,6 @@ public class ClientesSubscriber implements Subscriber<Cliente> {
 		subscription.request(1);
 	}
 
-
 	@Override
 	public void onError(Throwable e) {
 		System.out.println(Thread.currentThread().getId()+"-Error");

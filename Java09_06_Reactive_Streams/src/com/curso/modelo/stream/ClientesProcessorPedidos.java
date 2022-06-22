@@ -20,15 +20,14 @@ public class ClientesProcessorPedidos extends ClientesProcessor {
 		super(executorService);
 	}
 	
+	@Override
 	public Cliente procesarCliente(Cliente cliente) throws Exception {
 		System.out.println(Thread.currentThread().getId()+"-ClientesProcessorPedidos.. Elemento recibido: "+cliente);
 		Optional<List<Pedido>> pedOp = serviciopedidos.getPedidosCliente(cliente.getId());
 		cliente.setPedidos(pedOp.orElseThrow(()->new Exception("Zasca")));
 		return cliente;
 	}
-
-
-
+	
 }
 
 
