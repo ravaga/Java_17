@@ -11,13 +11,17 @@ import javax.swing.JButton;
 public class PruebasLambdas {
 	
 	private static void insertar() {
-		//Método de palo
-	}	
+		//Mï¿½todo de palo
+	}
+	
+	private static Function<Integer, Integer> sum (final Integer a){
+		return b->a+b;
+	}
 	
 	public static void main(String[] args) {
 		
 		//
-		//Cases internas anónimas
+		//Cases internas anï¿½nimas
 		//
 		
 		JButton boton = new JButton("Dale");
@@ -25,14 +29,14 @@ public class PruebasLambdas {
 		//boton.addActionListener(new OyenteBotonInsertar());
 
 		
-		//Definiendo el oyente con una clase interna anónima
-		//Definiendo el oyente con una clase interna anónima
-		//Una clase interna anónima es
-		//-una clase definida dentro de un método
-		//-Con constructor sin parámetros
-		//-inaccesible desde el resto de la aplicación
+		//Definiendo el oyente con una clase interna anï¿½nima
+		//Definiendo el oyente con una clase interna anï¿½nima
+		//Una clase interna anï¿½nima es
+		//-una clase definida dentro de un mï¿½todo
+		//-Con constructor sin parï¿½metros
+		//-inaccesible desde el resto de la aplicaciï¿½n
 		//-se programan heredando de una clase o implementando una interfaz
-		//-en un único movimiento definimos la clase y creamos el objeto		
+		//-en un ï¿½nico movimiento definimos la clase y creamos el objeto		
 		ActionListener al = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -42,10 +46,10 @@ public class PruebasLambdas {
 		boton.addActionListener(al);
 
 		//Igual, pero sin usar una variable intermedia
-		JButton boton2 = new JButton("Dale más");
+		JButton boton2 = new JButton("Dale mï¿½s");
 		boton2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Botón pulsado");
+				System.out.println("Botï¿½n pulsado");
 			}
 		});
 		
@@ -57,7 +61,7 @@ public class PruebasLambdas {
 		ActionListener oyenteBotonInsertar = e -> insertar();
 		boton3.addActionListener(oyenteBotonInsertar);
 			
-		//Mejor todavía (sin variable):
+		//Mejor todavï¿½a (sin variable):
 		boton3.addActionListener( e -> insertar() );
 		
 		
@@ -76,8 +80,8 @@ public class PruebasLambdas {
 		};
 		r1.decirHora();
 		
-		//Cuando el método no recibe parámetros los parentesis son obligatorios
-		//Cuando el metodo solo tiene una línea nos podemos ahorrar las llaves del método		
+		//Cuando el mï¿½todo no recibe parï¿½metros los parentesis son obligatorios
+		//Cuando el metodo solo tiene una lï¿½nea nos podemos ahorrar las llaves del mï¿½todo		
 		
 		Reloj r2 = () -> System.out.println(new Date());		
 		r2.decirHora();			
@@ -92,12 +96,12 @@ public class PruebasLambdas {
 				System.out.println("Hola "+nombre);
 			}
 		};		
-		s1.saludar("Luis Ramón");
+		s1.saludar("Luis Ramï¿½n");
 		
-		//Podemos ahorrarnos el tipo de los parámetros
-		//Cuando el método recibe un único parámetro y no se indica el tipo se pueden quitar los parentesis 
+		//Podemos ahorrarnos el tipo de los parï¿½metros
+		//Cuando el mï¿½todo recibe un ï¿½nico parï¿½metro y no se indica el tipo se pueden quitar los parentesis 
 		Saludador s2 = nombre -> System.out.println("Hola "+nombre);
-		s2.saludar("Luis Ramón");		
+		s2.saludar("Luis Ramï¿½n");		
 
 		
 
@@ -112,7 +116,7 @@ public class PruebasLambdas {
 		};
 		c1.calcular(25d, 500d);
 
-		//Cuando se recibe más de un parámetro los parentesis vuelven a ser obligatorios
+		//Cuando se recibe mï¿½s de un parï¿½metro los parentesis vuelven a ser obligatorios
 		Calculador c2 = (n1, n2) -> System.out.println(n1+n2);
 		c2.calcular(25d, 500d);
 
@@ -127,13 +131,13 @@ public class PruebasLambdas {
 		};		
 		System.out.println(f1.formatear("aaa", "bbb"));
 
-		//Cuando quitamos las llaves del método el compilador añade un return IMPLÍCITO
+		//Cuando quitamos las llaves del mï¿½todo el compilador aï¿½ade un return IMPLï¿½CITO
 		Formateador f2 = (dato1, dato2) -> dato1+"+"+dato2;
 		System.out.println(f2.formatear("aaa", "bbb"));
 		
 		
 		//
-		//¿Son closures las expresiones lambda de java?
+		//ï¿½Son closures las expresiones lambda de java?
 		//
 		//NO: solo pueden utilizar variables declaradas fuera de ellas si son finales o 'efectivamente finales'
 		//
@@ -172,7 +176,12 @@ public class PruebasLambdas {
 		//public T get()
 		Supplier<Double> suplier = () -> Math.random();
 		Double n = suplier.get();
-		System.out.println(n);			
+		System.out.println(n);
+		
+		// ejercicio clase
+
+		System.out.println(sum(5)); // imprime el mÃ©todo lambda
+		System.out.println(sum(5).apply(6));
 		
 	}
 
@@ -191,12 +200,12 @@ class OyenteBotonInsertar implements ActionListener{
 */
 
 //
-//Interfaces funcionales: solo tienen un método
+//Interfaces funcionales: solo tienen un mï¿½todo
 //
 
 //
-//La anotación @FunctionalInterface indica al compilador que debe comprobar que efectivamente se trata
-//de una interfaz con un único método
+//La anotaciï¿½n @FunctionalInterface indica al compilador que debe comprobar que efectivamente se trata
+//de una interfaz con un ï¿½nico mï¿½todo
 //
 @FunctionalInterface
 interface Reloj{
