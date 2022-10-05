@@ -21,7 +21,7 @@ public class Pruebas {
 			System.out.println(p2.getTitulo());		
 		}
 				
-		//Con optional mínimo avisamos al que invoca al método de que puede recibir un null
+		//Con optional mï¿½nimo avisamos al que invoca al mï¿½todo de que puede recibir un null
 		Optional<Pelicula> p3 = peliculaRepo.buscarOptional(3);
 		//Podemos preguntar directamente si hay algo dentro del optional, pero es muy cutre
 		if(p3.isPresent()){
@@ -31,7 +31,11 @@ public class Pruebas {
 		Optional<Pelicula> p4 = peliculaRepo.buscarOptional(20_000);
 		if(p4.isPresent()){
 			System.out.println(p4.get().getTitulo());
-		} 
+		}
+		
+		// La mejor prÃ¡ctica es usar orElseThrow
+//		Pelicula p4 = peliculaRepo.buscarOptional(20_000).orElseThrow();
+//		System.out.println(p4.getTitulo());
 		
 		//Aun teniendo un optional podemos hacerlo fallar:
 		//Pelicula p4bis = gp.buscarOptional(20000).get();
